@@ -1,0 +1,46 @@
+/*                KEY POSITIONS
+
+  ╭────────────────────╮ ╭────────────────────╮
+  │  0   1   2   3   4 5 │ │  6   7   8   0   10 11 │
+  │ 12  13  14  15  16 17│ │ 18  19  20  21  22  23 │
+  │ 24  25  26  27  28 29 │ │ 30  31  32  33  34 35 │
+  ╰───────────╮ 36 37  38 │ │ 39  40 41 ╭───────────╯
+              ╰────────╯ ╰────────╯            */
+
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM, QUICKTAP) \
+        combo_##NAME { \
+            timeout-ms = <TERM>; \
+            bindings = <BINDINGS>; \
+            key-positions = <KEYPOS>; \
+            layers = <LAYERS>; \
+            global-quick-tap-ms = <QUICKTAP>; \
+        };
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+COMBO(semi,   &kp SEMI,      7  8, DEF QWE, 40, 100)
+COMBO(lpar,   &kp LPAR,     15 16, DEF QWE, 40, 100)
+COMBO(rpar,   &kp RPAR,     19 20, DEF QWE, 40, 100)
+COMBO(lbkt,   &kp LBKT,     14 15, DEF QWE, 40, 100)
+COMBO(rbkt,   &kp RBKT,     20 21, DEF QWE, 40, 100)
+COMBO(tab,    &kp TAB,      14 16, DEF QWE, 40, 200)
+COMBO(bspc,   &kp BSPC,     19 21, DEF QWE, 40, 200)
+COMBO(grave,  &kp GRAVE,    26 27, DEF QWE, 40, 100)
+COMBO(tilde,  &kp TILDE,    25 26, DEF QWE, 40, 100)
+COMBO(bslh,   &kp BSLH,     31 32, DEF QWE, 40, 100)
+COMBO(pipe,   &kp PIPE,     32 33, DEF QWE, 40, 100)
+COMBO(esc,    &kp ESC,       2  3, DEF QWE, 40, 100)
+
+COMBO(capswd, &caps_word,   16 19, DEF QWE, 60, 200)
+
+#ifdef MOUSE_KEYS
+#    ifndef THREE_THUMBS
+COMBO(mse_l,  &mo MSE,      36 37, DEF QWE, 100,  0)
+#    else
+COMBO(mse_l,  &mo MSE,      38 39, DEF QWE, 100,  0)
+#    endif
+#endif
+    };
+};
