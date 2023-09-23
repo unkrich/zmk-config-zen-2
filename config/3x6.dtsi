@@ -147,7 +147,7 @@
 &none     &aml LCTRL A  &aml LGUI S   &aml LALT D   &asl LSHFT F  &kp G             &kp H         &asr RSHFT J  &amr RALT K   &amr RGUI L   &amr RCTRL SEMI  &kp SQT
 #endif
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-&none     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH       &kp ESC
+&kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH       &kp ESC
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
 #ifdef THREE_THUMBS
                                  &mt LCTRL BSPC  &lt NAV BSPC &kp LGUI      &kp RET &lt SYM SPACE &mt LSHFT DEL
