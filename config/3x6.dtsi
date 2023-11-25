@@ -230,7 +230,7 @@
 &none     &none         &kp LS(TAB)   &swapper      &kp LS(INS)   &kp C_PP          &kp INS       &kp DEL       &kp C_PREV    &kp C_NEXT    &none           &none
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
 #ifdef THREE_THUMBS
-                                 &kp LCTRL      &kp LGUI     &trans            &trans        &kp LSHFT     &kp RALT
+                                 &kp LCTRL      &kp LGUI     &kp FUN            &trans        &kp LSHFT     &kp RALT
 #else
                                                &kp LCTRL     &trans            &trans        &kp LSHFT
 #endif
