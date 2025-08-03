@@ -6,11 +6,12 @@
     delay-ms = <0>;                   // 0
 };
 
-&mwh {
-    acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <40>;      // 300
-    delay-ms = <0>;                   // 0
-};
+// Mouse wheel configuration - commented out for compatibility
+// &mwh {
+//     acceleration-exponent = <1>;      // 0
+//     time-to-max-speed-ms = <40>;      // 300
+//     delay-ms = <0>;                   // 0
+// };
 
 #define U_MOUSE_MOVE_MAX 1200       // 600
 #define U_MOUSE_SCROLL_MAX 20       // 10
