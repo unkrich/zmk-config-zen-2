@@ -35,6 +35,15 @@ COMBO(esc,    &kp ESC,       2  3, DEF QWE, 40, 100)
 
 COMBO(capswd, &caps_word,   16 19, DEF QWE, 60, 200)
 
+// Bluetooth combos
+COMBO(bt_tog, &out OUT_TOG,  1  2, DEF QWE, 60, 0)    // Toggle USB/BLE
+COMBO(bt0,    &bt BT_SEL 0,  1 13, DEF QWE, 60, 0)    // Select profile 0
+COMBO(bt1,    &bt BT_SEL 1,  2 14, DEF QWE, 60, 0)    // Select profile 1
+COMBO(bt2,    &bt BT_SEL 2,  3 15, DEF QWE, 60, 0)    // Select profile 2
+COMBO(bt3,    &bt BT_SEL 3,  8 20, DEF QWE, 60, 0)    // Select profile 3
+COMBO(bt4,    &bt BT_SEL 4,  9 21, DEF QWE, 60, 0)    // Select profile 4
+COMBO(btclr,  &bt BT_CLR,    0  4, DEF QWE, 100, 0)   // Clear current profile
+
 #ifdef MOUSE_KEYS
 #    ifndef THREE_THUMBS
 COMBO(mse_l,  &mo MSE,      36 37, DEF QWE, 100,  0)
