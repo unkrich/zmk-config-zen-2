@@ -23,38 +23,51 @@ jobs:
             zephyr/
             bootloader/
             zmk/
-          key: ${{ runner.os }}-build-${{ hashFiles('config/west.yml') }}
+          key: ${{ runner.os }}-build-zen-${{ hashFiles('config/west.yml', 'build.yaml') }}
           restore-keys: |
+            ${{ runner.os }}-build-zen-
             ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
-      - name: West Init
-        run: west init -l config
-
-      - name: West Update
-        run: west update
-
-      - name: West Zephyr export
-        run: west zephyr-export
+      - name: Initialize workspace
+        run: |
+          west init -l config
+          west update
+          west zephyr-export
 
       - name: Build Corneish Zen v2 Left
-        run: west build -s zmk/app -b corneish_zen_v2_left -d build/left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: |
+          echo "Building left half..."
+          west build -s zmk/app -p -b corneish_zen_v2_left -d build/left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+          if [ -f "build/left/zephyr/zmk.uf2" ]; then
+            echo "Left firmware built successfully"
+          else
+            echo "Left firmware build failed"
+            exit 1
+          fi
 
-      - name: Build Corneish Zen v2 Right
-        run: west build -s zmk/app -b corneish_zen_v2_right -d build/right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: Build Corneish Zen v2 Right  
+        run: |
+          echo "Building right half..."
+          west build -s zmk/app -p -b corneish_zen_v2_right -d build/right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+          if [ -f "build/right/zephyr/zmk.uf2" ]; then
+            echo "Right firmware built successfully"
+          else
+            echo "Right firmware build failed"
+            exit 1
+          fi
 
-      - name: Archive firmware
+      - name: Prepare firmware artifacts
+        run: |
+          cp build/left/zephyr/zmk.uf2 corneish_zen_v2_left.uf2
+          cp build/right/zephyr/zmk.uf2 corneish_zen_v2_right.uf2
+
+      - name: Upload firmware artifacts
         uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: |
-            build/left/zephyr/zmk.uf2
-            build/right/zephyr/zmk.uf2
-
-      - name: Rename firmware files
-        run: |
-          cp build/left/zephyr/zmk.uf2 corneish_zen_v2_left.uf2
-          cp build/right/zephyr/zmk.uf2 corneish_zen_v2_right.uf2
+            corneish_zen_v2_left.uf2
+            corneish_zen_v2_right.uf2
 
       - name: Upload left firmware
         uses: actions/upload-artifact@v4
