@@ -4,10 +4,17 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: caksoylar
-      revision: caksoylar/zen-8bit
+      # Pin the Zen display fork used to validate this keymap.
+      revision: 98829b871d7992120555ca8a2f279905f9281505
       import: app/west.yml
+    - name: zmk-tri-state
+      remote: urob
+      # v0.2.1 supplies the swapper behavior missing from the Zen fork.
+      revision: 5c33885b5d6ec32fc3a311d01f2472235ba2c516
   self:
     path: config
