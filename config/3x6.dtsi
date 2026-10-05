@@ -144,7 +144,7 @@
 #ifdef MOUSE_KEYS
 &kp LCTRL     &aml LCTRL A  &aml LGUI S   &aml LALT D   &asl LSHFT F  &lt MSE G         &kp H         &asr RSHFT J  &amr RALT K   &amr RGUI L   &amr RCTRL SEMI  &kp SQT
 #else
-&none     &aml LCTRL A  &aml LGUI S   &aml LALT D   &asl LSHFT F  &kp G             &kp H         &asr RSHFT J  &amr RALT K   &amr RGUI L   &amr RCTRL SEMI  &kp SQT
+&kp LCTRL     &aml LCTRL A  &aml LGUI S   &aml LALT D   &asl LSHFT F  &kp G             &kp H         &asr RSHFT J  &amr RALT K   &amr RGUI L   &amr RCTRL SEMI  &kp SQT
 #endif
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH       &kp ESC
